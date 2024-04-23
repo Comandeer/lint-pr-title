@@ -1,0 +1,74 @@
+{
+  "name": "lint-pr-title",
+  "version": "0.0.0",
+  "description": "GitHub Action for linting PR titles",
+  "private": true,
+  "main": "./dist/index.mjs",
+  "type": "module",
+  "scripts": {
+    "prebuild": "rimraf ./dist",
+    "build": "ncc build ./src/index.mts --license licenses.txt -m",
+    "postbuild": "node ./dev/renameDist.js",
+    "test": "ava",
+    "prepare": "husky",
+    "lint": "eslint \"./src\" \"./tests\"",
+    "version": "npm test && npm run build && git add -f dist/",
+    "postversion": "git rm -r --cached dist/ && git commit -m \"chore(dist): clean after release [ci skip]\" && git push origin && git push origin --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Comandeer/lint-pr-title.git"
+  },
+  "keywords": [
+    "commitlint",
+    "github-action"
+  ],
+  "author": "Comandeer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Comandeer/lint-pr-title/issues"
+  },
+  "homepage": "https://github.com/Comandeer/lint-pr-title#readme",
+  "commitplease": {
+    "nohook": true,
+    "style": "angular",
+    "types": [
+      "feat",
+      "fix",
+      "docs",
+      "style",
+      "refactor",
+      "perf",
+      "test",
+      "build",
+      "ci",
+      "chore",
+      "revert"
+    ],
+    "scope": "\\S+.*"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@comandeer/eslint-config": "^0.13.1",
+    "@vercel/ncc": "^0.38.1",
+    "ava": "^6.1.2",
+    "commitplease": "^3.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/lint": "^19.2.2",
+    "@commitlint/load": "^19.2.0"
+  }
+}
