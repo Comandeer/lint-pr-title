@@ -1,1 +1,1 @@
-npm exec commitplease .git/COMMIT_EDITMSG
+npx commitplease .git/COMMIT_EDITMSG
