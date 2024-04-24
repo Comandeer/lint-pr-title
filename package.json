@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "prebuild": "rimraf ./dist",
-    "build": "ncc build ./src/index.mts --license licenses.txt -m",
+    "build": "ncc build ./src/index.ts --license licenses.txt -m",
     "test": "ava",
     "prepare": "husky",
     "lint": "eslint \"./src\" \"./tests\"",
