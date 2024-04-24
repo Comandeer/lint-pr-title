@@ -11,7 +11,7 @@ Create a new GH workflow, e.g. `.github/workflows/prLinter.yml`:
 name: Lint PR title
 on:
   pull_request:
-    types: [opened, reopened, edited]
+    types: [opened, reopened, edited, synchronize]
 
 jobs:
   lint:
