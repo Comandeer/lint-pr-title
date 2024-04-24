@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "description": "GitHub Action for linting PR titles",
   "private": true,
-  "main": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "type": "module",
   "scripts": {
     "prebuild": "rimraf ./dist",
     "build": "ncc build ./src/index.mts --license licenses.txt -m",
-    "postbuild": "node ./dev/renameDist.js",
     "test": "ava",
     "prepare": "husky",
     "lint": "eslint \"./src\" \"./tests\"",

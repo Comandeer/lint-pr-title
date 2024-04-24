@@ -14,7 +14,7 @@ outputs:
     description: The error and warning messages for each one of the analyzed commits
 runs:
   using: 'node20'
-  main: './dist/index.mjs'
+  main: './dist/index.js'
 branding:
   icon: check-square
   color: green
