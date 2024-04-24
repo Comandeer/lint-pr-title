@@ -13,6 +13,7 @@ try {
 
 	if ( !valid ) {
 		core.setOutput( 'errors', errors );
+		core.debug( `Found issues: ${ formatErrors( errors ) }` );
 		core.setFailed(
 			'The PR title does not adhere to the Conventional Commits rules. ' +
 			'See more at https://www.conventionalcommits.org/en/v1.0.0/'
@@ -36,4 +37,10 @@ function issueToPR( issue: typeof context.issue ): PRMetadata {
 		// eslint-disable-next-line camelcase
 		pull_number: issue.number
 	};
+}
+
+function formatErrors( errors: Array<string> ): string {
+	return `\n ${ errors.map( ( error ) => {
+		return `* ${ error }.`;
+	} ).join( '\n' ) }`;
 }
