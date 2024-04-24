@@ -1,5 +1,5 @@
 ame: PR Title Linter
-description: Lints PR title using commitlint with Conventional Commits rules
+description: Lints PR title against Conventional Commits rules
 author: Comandeer
 inputs:
   token:
