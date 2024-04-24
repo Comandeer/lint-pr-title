@@ -6,7 +6,6 @@ node_modules/
 /.project
 coverage/
 .coverage
-dist/
 bin/
 build/
 docs/dist
