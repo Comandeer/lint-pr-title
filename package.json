@@ -1,6 +1,6 @@
 {
   "name": "lint-pr-title",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "GitHub Action for linting PR titles",
   "private": true,
   "main": "./dist/index.js",
