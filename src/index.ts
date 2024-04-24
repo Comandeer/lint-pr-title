@@ -9,9 +9,10 @@ try {
 	const octokit = getOctokit( token );
 	const prMetadata = issueToPR( context.issue );
 	const { data: prData } = await octokit.rest.pulls.get( prMetadata );
-	const result = lint( prData.title );
+	const { valid, errors } = lint( prData.title );
 
-	if ( !result ) {
+	if ( !valid ) {
+		core.setOutput( 'errors', errors );
 		core.setFailed(
 			'The PR title does not adhere to the Conventional Commits rules. ' +
 			'See more at https://www.conventionalcommits.org/en/v1.0.0/'

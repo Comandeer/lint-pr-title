@@ -11,7 +11,7 @@ inputs:
     required: false
 outputs:
   results:
-    description: The error and warning messages for each one of the analyzed commits
+    description: The error messages from the PR title linting
 runs:
   using: 'node20'
   main: './dist/index.js'
