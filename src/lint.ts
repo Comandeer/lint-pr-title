@@ -1,19 +1,27 @@
-import load from '@commitlint/load';
-import commitLint from '@commitlint/lint';
+import validate from 'commitplease/lib/validate.js';
 
 export default async function lint( title: string ): Promise<boolean> {
-	const config = {
-		extends: [
-			'@commitlint/config-conventional'
-		]
-	};
-	const opts = await load( config );
-	const lintOptions = opts.parserPreset?.parserOpts !== undefined && opts.parserPreset.parserOpts !== null ?
-		{
-			parserOpts: opts.parserPreset.parserOpts
-		} :
-		{};
-	const report = await commitLint( title, opts.rules, lintOptions );
+	const errors = validate( title, {
+		style: 'angular',
+		types: [
+			'feat',
+			'fix',
+			'docs',
+			'style',
+			'refactor',
+			'perf',
+			'test',
+			'build',
+			'ci',
+			'chore',
+			'revert'
+		],
+		scope: '\\S+.*',
+		limits: {
+			firstLine: 100,
+			otherLine: 0
+		}
+	} );
 
-	return report.valid;
+	return errors.length === 0;
 }
