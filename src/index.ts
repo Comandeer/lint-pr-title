@@ -12,7 +12,10 @@ try {
 	const result = lint( prData.title );
 
 	if ( !result ) {
-		core.setFailed( 'The PR title does not adhere to the Conventional Commits rules' );
+		core.setFailed(
+			'The PR title does not adhere to the Conventional Commits rules. ' +
+			'See more at https://www.conventionalcommits.org/en/v1.0.0/'
+		);
 	}
 } catch ( error ) {
 	core.setFailed( `PR title linter errored: ${ String( error ) } }` );

@@ -23,5 +23,8 @@ export default function lint( title: string ): boolean {
 		}
 	} );
 
+	// eslint-disable-next-line no-console
+	console.log( 'Found issues:', errors );
+
 	return errors.length === 0;
 }
