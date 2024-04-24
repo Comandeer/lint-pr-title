@@ -1,6 +1,6 @@
 # lint-pr-title
 
-GitHub Action for linting PR titles. It uses [commitlint](https://commitlint.js.org/) to validate PR title against [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) rules.
+GitHub Action for linting PR titles. It validates PR title against [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) rules.
 
 
 ## Usage
