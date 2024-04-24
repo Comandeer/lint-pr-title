@@ -1,6 +1,6 @@
 import validate from 'commitplease/lib/validate.js';
 
-export default async function lint( title: string ): Promise<boolean> {
+export default function lint( title: string ): boolean {
 	const errors = validate( title, {
 		style: 'angular',
 		types: [
