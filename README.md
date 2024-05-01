@@ -15,6 +15,7 @@ on:
 
 jobs:
   lint:
+    name: Lint PR title
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
